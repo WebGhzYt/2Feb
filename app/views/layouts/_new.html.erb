@@ -1,0 +1,23 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Make item</h4>
+      </div>
+      <div class="modal-body">
+      <%#= lid %>
+      <%= @lid_new_partial %>
+      <%= form_for List.new ,url: list_index_path(:list), method: :post do |f| %>
+         
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          
+          <%=f.hidden_field :pid, :value => @lid_new_partial %>
+          <%= f.submit "Create new Folder" %>
+         <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

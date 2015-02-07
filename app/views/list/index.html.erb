@@ -1,0 +1,44 @@
+<button type="button" id="addlist" class="btn btn-success" style="margin-left:5px; margin-top:-4px;" data-toggle="modal" data-target="#myModal">
+Add List
+</button>
+
+
+    <% if (@lists.any?) %>
+    <table >
+      <tr>
+      	<td>Folder Id</td>
+      	<td>Floder Name</td>
+      	<td>Parent Id</td>
+        
+      </tr>
+    	
+    
+      <% @lists.each do |list| %>
+      
+      <%= render :partial => 'layouts/new', :locals => {:lid => list.id} %>
+  		<tr>
+  			<td><%= list.id %></td>
+  			<td>
+  				<% if list.pid == 0  %>
+  
+
+						<div class="label label-info">
+						<%= link_to list.name, new_partial_path(:lid => list.id)  %>	</div>	
+
+  				<%# <button type="button" class="label label-info" data-toggle="modal" data-target="#myModal">
+
+				<%#= list.name %>
+<%#</button>%>
+
+          
+  				
+  				<% else %>
+  					<%#<div class="label label-info"> <%= list.name %></div>
+  					<%= list.name %>
+  				<% end %>
+  			</td>
+  			<td><%= list.pid %></td>  
+  		</tr>
+      <% end %>
+</table>
+    <% end %>

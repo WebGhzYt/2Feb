@@ -1,0 +1,9 @@
+
+  
+<%= form_for @list ,url: list_index_path(@list), method: :post do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <% %>
+      <%=f.hidden_field :pid, :value => :pid %>
+      <%= f.submit "Create new Folder" %>
+<% end %>
