@@ -1,12 +1,16 @@
 
+
 <!-- <button type="button" id="addlist" class="btn btn-success" style="margin-left:5px; margin-top:-4px;" data-toggle="modal" data-target="#myModal"> -->
 <!-- Add List
 </button>
  -->
-	 <%= render :partial => 'layouts/temp'%>
-	 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">New Item
-	</button>
-
+	 <%#= render :partial => 'layouts/temp'%>
+	 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">New Item
+	< /button> -->
+   <div class="label label-info">
+              <%= link_to "Home", new_partial_path(:lid => 0), method: :post %>
+    </div>  
+          
     <% if (@lists.any?) %>
     <table >
       <tr>
@@ -19,12 +23,15 @@
   	  <tr>
   		<td><%= list.id %></td>
   		<td>
-  			<% if list.pid == 0  %>
-          
-  					 <div class="label label-info">
-						  <%= link_to list.name, new_partial_path(:lid => list.id), method: :post %>
-            </div>	
- 						 <%#= form_for list_index_path(pid: list.id), method: :post do |f| %>
+  			<% if list.pid != nil  %>
+                 <div> <%= link_to "+", new_partial_path(:lid => list.id), method: :post %>
+                  <%= list.name %></div>
+
+                
+                	      	<!-- <div class="label label-info">
+						  
+            </div>
+             --> <%#= form_for list_index_path(pid: list.id), method: :post do |f| %>
 						
 		    	
 				<!-- <button type="button" id="child-button" class="label label-info" data-toggle="modal" data-target="#exampleModal"  data-whatever= '22'>
