@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 root 'list#index'
-get 'new_partial' => 'layouts/new_partial#new_partial'
+post 'new_partial' => 'list#new_partial'
 resources 'list'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

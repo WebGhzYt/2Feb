@@ -1,13 +1,49 @@
-<%= form_for List.new ,url: list_index_path(:list), method: :post do |f| %>
-         
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-          
+<html>
+<script type="text/javascript">
+	$('#exampleModal').on('show.bs.modal', function (event) {
+		 alert("shown");
+		 
+	// var button = $(event.relatedTarget) // Button that triggered the modal
+	// var recipient = button.data('whatever') // Extract info from data-* attributes
+ //    var modal = $(this)
 
+ //   //        $.ajax({
+ //   //        	methods: 'GET'
+	// 		// url: "/list",	
+ //   //  		data: {pid: recipient},
+ //   //  		success:function(){
+ //   //    			alert('pid') //'Thanks for voting!'
+ //   //  		}
+ //  	// 	   })
 
-
-          
-
-          <%=f.hidden_field :pid, :value => :pid %>
-          <%= f.submit "Create new Folder" %>
-         <% end %>
+	// modal.find('.modal-title').text('New Item to ' + recipient)
+	// modal.find('.modal-body #list_name').val(recipient)
+	// 	  })
+</script>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="exampleModalLabel">New Item</h4>
+	      </div>
+	      <div class="modal-body">
+	        
+		  <%#= @lid_new_partial %>
+	      <%= form_for List.new ,url: list_index_path(:list), method: :post do |f| %>
+	          <%= f.label :name %>
+	          <%= f.text_field :name, value: "" %>
+	          <%= f.hidden_field :pid, :value => :pid %>
+	          <%= f.submit "Create" %>
+	      <% end %>
+	        <!-- <form>
+	          <div class="form-group">
+	            <label for="recipient-name" class="control-label">Item Name:</label>
+	            <input type="text" class="form-control" id="recipient-name">
+	          </div>
+	        </form> -->
+	      </div>
+	    </div>	
+	  </div>
+	</div>
+</html>
