@@ -1,0 +1,6 @@
+<%= form_for :list, url: list_index_path(@lid_new_partial),method: :post do |f| %>
+              <%= f.label :name %>
+              <%= f.text_field :name, value: "" %>
+              <%=f.hidden_field :pid, :value => @lid_new_partial %>
+              <div  class="label label-info"><%= f.submit "Add" %></div>
+<% end %>

@@ -1,7 +1,7 @@
 class ListController < ApplicationController
 	def index
 		@lists =  List.all
-		@lid = params[:lid]
+		
 		# @pid = params[:pid]
 		#@lid = 6
 	end
@@ -15,8 +15,9 @@ class ListController < ApplicationController
 	end
 	def create
 		# @pid = params[:pid]
-		#@list = List.new(:name => params[:name],:pid => @pid)
-	    @list = List.new(list_params)
+		# @lid = params[:pid]
+		@list = List.new(params[:list].permit(:name , :pid))
+	    # @list = List.new(list_params)
 		if @list.save
 			redirect_to root_url 
       	else

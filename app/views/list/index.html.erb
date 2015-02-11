@@ -20,18 +20,17 @@
   		<td><%= list.id %></td>
   		<td>
   			<% if list.pid == 0  %>
-  					<!-- <div class="label label-info">
-						<%= link_to list.name, new_partial_path(:lid => list.id)  %>	</div>	
- 						-->
-						 <%#= form_for new_partial_path(lid: list.id), method: :post do |f| %>
-						 	<%#=f.hidden_field :pid, :value => list.id %>
-						 	<%#= f.submit list.name %>
-						 <%# end %>
+          
+  					 <div class="label label-info">
+						  <%= link_to list.name, new_partial_path(:lid => list.id), method: :post %>
+            </div>	
+ 						 <%#= form_for list_index_path(pid: list.id), method: :post do |f| %>
+						
 		    	
-				<button type="button" id="child-button" class="label label-info" data-toggle="modal" data-target="#exampleModal"  data-whatever= '22'>
+				<!-- <button type="button" id="child-button" class="label label-info" data-toggle="modal" data-target="#exampleModal"  data-whatever= '22'>
 			    <%= list.id %> ||	<%= list.name %>
 				</button>
-
+ -->
 						 <%# @mdo = list.id %>
 		  				  <!-- <button type="button" class="label label-info" data-toggle="modal" data-target="#myModal" data-whatever="@mdo" > -->
 
